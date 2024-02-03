@@ -1,4 +1,11 @@
-import { Controller, Get, Post, Body, Param } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Param,
+  NotFoundException,
+} from '@nestjs/common';
 
 import { CreateMessageDto } from './dto/create-message.dto';
 
@@ -17,5 +24,8 @@ export class MessagesController {
   @Get('/:id')
   getMessages(@Param('id') id: string) {
     console.log(id);
+    // if (!message) {
+    //   throw new NotFoundException('message not found');
+    // }
   }
 }
